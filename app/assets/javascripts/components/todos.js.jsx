@@ -6,10 +6,10 @@ var TodoList = React.createClass({
 
     return(
       <div>
-      <ul>
-        {view}
-      </ul>
-      <TodoForm/>
+        <ul>
+          {view}
+        </ul>
+        <TodoForm/>
       </div>
     )
   },
