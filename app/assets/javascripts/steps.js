@@ -1,7 +1,9 @@
-var Step = function(callback){
+var Step = function(callback, todo){
   this.changed = callback;
-  this._steps = [];
-},
+  if(todo.steps){
+    this._steps = todo.steps;
+  }
+}
 
 Step.prototype = {
   create: function(step){

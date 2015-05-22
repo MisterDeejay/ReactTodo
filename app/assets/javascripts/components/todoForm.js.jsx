@@ -16,24 +16,7 @@ var TodoForm = React.createClass({
             </div>
           );
   },
-
-  // changeTitle: function(e){
-  //   this.setState({todo: {
-  //     title: e.target.value,
-  //     body: this.state.todo.body,
-  //     done:false
-  //   }});
-  // },
-  //
-  // changeBody: function(e){
-  //   this.setState({todo: {
-  //     body: e.target.value,
-  //     title: this.state.todo.title,
-  //     done: false
-  //   }});
-  // },
-
-
+  
   submitForm: function(){
     var newTodo = {title: this.state.title, body: this.state.body, done: false};
     window.todoInstance.create(newTodo);

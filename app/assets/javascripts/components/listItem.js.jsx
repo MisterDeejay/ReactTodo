@@ -11,9 +11,10 @@ var ListItem = React.createClass({
       view = (
         <div>
           <p>{this.props.todo.body}</p>
+          <StepList todo={this.props.todo}/>
           <button onClick={this.deleteTodo}>Delete</button>
         </div>
-      );
+      )
     }
 
     return(

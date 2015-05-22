@@ -13,6 +13,7 @@ Todo.prototype = {
 
   create: function(todo){
     $.post("/api/todos", {todo: todo}, function(resp){
+      resp.steps = [];
       this._todos.push(resp);
       this.changed();
     }.bind(this))
@@ -33,11 +34,18 @@ Todo.prototype = {
   },
 
   toggleDone: function(todo){
-    todo.done = !todo.done;
+    newTodo = {
+      id: todo.id,
+      done: !todo.done,
+      title: todo.title,
+      body: todo.body
+    }
+
     $.ajax("/api/todos/"+todo.id,{
       type:"PATCH",
-      data:{todo: todo},
+      data:{todo: newTodo},
       success: function(){
+                todo.done = !todo.done;
                 this.changed();
                }.bind(this)
     });

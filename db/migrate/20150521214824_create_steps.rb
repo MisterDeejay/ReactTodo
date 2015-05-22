@@ -6,7 +6,6 @@ class CreateSteps < ActiveRecord::Migration
       t.boolean :done, null:false
 
       t.timestamps null: false
-      t.timestamps null: false
     end
   end
 end

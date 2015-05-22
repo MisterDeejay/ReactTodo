@@ -1,7 +1,8 @@
 class Api::TodosController < ApplicationController
   def index
-    @todos = Todo.all.include(:steps)
+    @todos = Todo.all.to_json(:include => :steps)
     render json: @todos
+    # render :index
   end
 
   def create
@@ -15,7 +16,7 @@ class Api::TodosController < ApplicationController
   end
 
   def show
-    @todo = Todo.find(params[:id]).include(:steps)
+    @todo = Todo.find(params[:id]).includes(:steps)
     render json: @todo
   end
 
